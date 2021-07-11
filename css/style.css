@@ -1,0 +1,133 @@
+body{
+    color: #fff;
+    margin: 0px;
+}
+
+/*container main properties*/
+.container{
+    display: flex;
+    overflow: hidden; 
+    justify-content: center;
+}
+
+/*block properties*/
+/*hide scrollbar, set heigh max screen,  */
+/*A Cubic Bezier curve is defined by four points P0, P1, P2, and P3. P0 and P3 are the start and the end of the curve and, 
+/*in CSS these points are fixed as the coordinates are ratios. P0 is (0, 0) and represents the initial time and the initial state, P3 is (1, 1) 
+/*and represents the final time and the final state.*/
+.content{
+    cursor: pointer;
+    position: absolute;
+    background-color: #fff;
+    width: 19.85%;
+    min-height: 100vh;
+    overflow: hidden;
+    /*copy from https://itacademyprojects.github.io/ITAcademybarras/*/
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/*block characteristics*/
+/*absolute position from the left, color and animation keyframe name*/
+.content:nth-child(1){
+    left: 0;
+    background: #244F75;
+    animation: barra1 1s;
+    }
+.content:nth-child(2){
+    left: 20vw;
+    background: #60BFBF;
+    animation: barra2 1s;
+    }
+.content:nth-child(3){
+    left: 40vw;
+    background: #8C4B7E;
+    animation: barra3 1s
+    }       
+.content:nth-child(4){
+    left: 60vw;
+    background:#F8BB44;
+    animation: barra4 1s;
+    }     
+.content:nth-child(5){
+   left: 80vw;
+   background:#F24B4B;
+   animation: barra5 1s;
+    }
+
+/*Animation block*/
+/*flex container*/
+/*timing-function:Describes how the animation will progress over one cycle of its duration. See the 'transition-timing-function'.*/
+/*fill-mode:Defines what values are applied by the animation outside the time it is executing.*/
+.content .block{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    -webkit-animation-duration: 1s;
+            animation-duration: 1s;
+    -webkit-animation-timing-function: cubic-bezier(0.21, 1, 0.33, 1);
+            animation-timing-function: cubic-bezier(0.21, 1, 0.33, 1);
+    -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+    }
+
+    .block h1{
+        font-size: 3.5vw;
+        font-weight: 400;
+    }
+
+    /*keyframes animation*/
+    @keyframes barra1 {
+        0% {
+          -webkit-transform: translate3d(-100%, 0, 0);
+                  transform: translate3d(-100%, 0, 0);
+        }
+    }
+    @keyframes barra2 {
+        0% {
+          -webkit-transform: translate3d(0, 0, 0);
+               transform: translate3d(0, 100%, 0);
+        }
+    }
+    @keyframes barra3 {
+        0% {
+          -webkit-transform: translate3d(0, 0, 0);
+              transform: translate3d(0, -100%, 0);
+        } 
+    }
+    @keyframes barra4 {
+        0% {
+          -webkit-transform: translate3d(0, 0, 0);
+               transform: translate3d(0, 100%, 0); 
+        } 
+    }
+    @keyframes barra5 {
+        0% {
+          -webkit-transform: translate3d(100%, 0, 0);
+                  transform: translate3d(100%, 0, 0); 
+        } 
+    }
+
+    /*Change some styles ::before*/
+    /*transform: A two-dimensional transformation is applied to an element through the 'transform' property. This property contains a list of transform functions similar to those allowed by SVG.*/
+    /*skew: skews an element into a given angle.*/
+    .container .block:before{
+        background: #fff;
+        position: absolute;
+        content: " ";
+        width: 100%;
+        height: 100%;
+        opacity: .05;
+        -webkit-transform-origin: center center;
+                transform-origin: center center;
+        -webkit-transform: skew(30deg) scaleY(1) translate(0, 0);
+                transform: skew(30deg) scaleY(1) translate(0, 0);
+        transition: all 0.6s cubic-bezier(0.21, 1, 0.33, 1);
+    }
+    .container .block:hover:before{
+        transform: skew(0) scaleY(3);
+        transition: 0.1s;
+    }
+
